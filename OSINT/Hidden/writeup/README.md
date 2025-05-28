@@ -1,34 +1,39 @@
-Here we are given the name of one of the members, Victor Leclair. The first step is to search for him on various social networks. You can find him on Mastodon :
+# Hidden
 
-![[victor_leclair.png]]
+## Who is Victor Leclar?
+Here we are given the name of one of the members, Victor Leclair. The first step is to search for him on various social networks. You can find him on Mastodon:
+
+![alt text](victor_leclair.png)
 
 https://mastodon.social/@victorlcl
 
 If you look at the content he has posted on the network, you can see two interactions:
 
-![[VL_posts.png]]
+![alt text](VL_posts.png)
 
 The one we're interested in is with @artdealer.
 
 When you go to his profile, you notice that his biography is strange:
 
-![[artdealer.png]]
+![alt text](artdealer.png)
 
 One of his posts is:
 
-![[artdealer_post.png]]
+![alt text](artdealer_post.png)
 
-One of his posts is:Note that the letters A, T, C and G are in capitals, which are also the letters in his bio. In addition, Victor Leclair commented below:
+Note that the letters A, T, C and G are in capitals, which are also the letters in his bio. In addition, Victor Leclair commented below:
 
-![[VL_answer.png]]
+![alt text](VL_answer.png)
 
-Here we have to decode the message in @artdealer's bio by replacing :
+## Decode
+
+Here we have to decode the message in @artdealer's bio by replacing:
 - A by 00
 - T by 01
 - C by 10
 - G by 11
 
-The transformation can be carried out using the following Python code:
+The transformation can be carried out using the following Python code for example:
 
 ```python
 def decode_dna_sequence(dna_seq):
@@ -52,8 +57,8 @@ decoded_link = decode_dna_sequence(dna_sequence)
 print(f"Lien décodé : {decoded_link}")
 ```
 
-And we get the link to the website:
+And we get so the link to the website:
 
-![[decode.png]]
+![alt text](decode.png)
 
 Flag: DVCTF{louvreunderground.dvc.tf}
