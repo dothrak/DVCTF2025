@@ -1,4 +1,4 @@
-# 2- Coordinates?
+# Coordinates?
 
 There are two ways of doing this:
 
