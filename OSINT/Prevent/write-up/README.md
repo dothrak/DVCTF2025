@@ -1,4 +1,4 @@
-# 2- Prevent
+# Prevent
 
 The Louvre provides fact sheets on each of the works it houses. If you use a search engine to enter the name of a work, you will easily come across its web page:
 
