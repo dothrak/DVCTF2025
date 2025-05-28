@@ -1,0 +1,7 @@
+name: louvrearchives
+services:
+  web:
+    build: .
+    ports:
+      - "10040:10040"
+    restart: always

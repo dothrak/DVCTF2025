@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Louvre Market</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      background-color: #0e0e0e;
+      color: #e0e0e0;
+    }
+
+    .banner {
+      background: #8b0000;
+      padding: 1em;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+    }
+
+    header {
+      padding: 1em;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    nav {
+      text-align: center;
+      margin-top: 1em;
+    }
+
+    nav a {
+      color: #00ffcc;
+      text-decoration: none;
+      margin: 0 1em;
+      font-weight: bold;
+    }
+
+    .intro {
+      max-width: 700px;
+      margin: 2em auto;
+      padding: 0 1em;
+      text-align: center;
+      color: #ccc;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5em;
+      padding: 2em;
+    }
+
+    .art-piece {
+      background: #1a1a1a;
+      padding: 1em;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #111;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .art-piece:hover {
+      transform: scale(1.03);
+    }
+
+    .art-piece img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .art-piece h2 {
+      font-size: 1.2em;
+      margin-top: 0.5em;
+    }
+
+    .price {
+      color: #00ffcc;
+      font-weight: bold;
+    }
+
+    .contact {
+      max-width: 600px;
+      margin: 3em auto;
+      padding: 2em;
+      background: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #111;
+    }
+
+    .contact h2 {
+      text-align: center;
+      margin-bottom: 1em;
+    }
+
+    .contact label {
+      display: block;
+      margin: 0.5em 0 0.2em;
+    }
+
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      padding: 0.5em;
+      border: none;
+      border-radius: 5px;
+      background-color: #2e2e2e;
+      color: #e0e0e0;
+    }
+
+    .contact button {
+      margin-top: 1em;
+      width: 100%;
+      padding: 0.7em;
+      border: none;
+      background-color: #00ffcc;
+      color: #000;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2em;
+      color: #555;
+      font-size: 0.8em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="banner">
+    ⚠️ This site is fictional and was created for a CTF challenge. None of the listed artworks were actually stolen.
+  </div>
+  <header>
+    <h1>Louvre Market</h1>
+    <p>Art belongs to those who know where to find it.</p>
+    <nav>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <section class="intro">
+    <p>Welcome to the depths of forbidden art. Here, the Louvre Market organization showcases and resells the
+      lost masterpieces of the world’s most famous museum. Paintings, sculptures, mysteries... everything is for
+      sale for those who can pay.</p>
+  </section>
+  <section class="gallery" id="gallery"></section>
+  <section class="contact" id="contact">
+    <h2>Contact the Administrator</h2>
+    <form id="contact-form" action="/" method="POST">
+      <label for="email">Your email:</label>
+      <input type="email" id="email" name="email" required>
+    
+      <label for="message">Your message:</label>
+      <textarea id="message" name="message" rows="6" required></textarea>
+    
+      <button type="submit">Send</button>
+    </form>
+  </section>
+  <footer>
+    Contact via encrypted channel only – Public key available on our private network. Discretion is advised.
+  </footer>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert('Message sent!');
+        this.submit();
+      });
+
+    const artworks = [
+      {
+        title: "Mona Lisa",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_natural_color.jpg/960px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_natural_color.jpg",
+        description: "Iconic portrait by Leonardo da Vinci, enigmatic and timeless.",
+        price: "50 BTC"
+      },
+      {
+        title: "The Lacemaker",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg/540px-Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg",
+        description: "A peaceful indoor scene by Vermeer, honoring meticulous craft.",
+        price: "28 BTC"
+      },
+      {
+        title: "Gabrielle d'Estrées and One of Her Sisters",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Scuola_di_fontainebleau%2C_presunti_ritratti_di_gabrielle_d%27estr%C3%A9es_sua_sorella_la_duchessa_di_villars%2C_1594_ca._06.jpg/700px-Scuola_di_fontainebleau%2C_presunti_ritratti_di_gabrielle_d%27estr%C3%A9es_sua_sorella_la_duchessa_di_villars%2C_1594_ca._06.jpg",
+        description: "Mysterious and intimate 16th-century French portrait.",
+        price: "22 BTC"
+      },
+      {
+        title: "Saint John the Baptist",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Leonardo_da_Vinci_-_Saint_John_the_Baptist_C2RMF_retouched.jpg/540px-Leonardo_da_Vinci_-_Saint_John_the_Baptist_C2RMF_retouched.jpg",
+        description: "Leonardo's cryptic depiction of the saint with a knowing smile.",
+        price: "26 BTC"
+      },
+      {
+        title: "The Winged Victory of Samothrace",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Victoire_de_Samothrace_-_Musee_du_Louvre_-_20190812.jpg/500px-Victoire_de_Samothrace_-_Musee_du_Louvre_-_20190812.jpg",
+        description: "Hellenistic masterpiece of a winged Nike, symbolizing victory.",
+        price: "30 BTC"
+      },
+      {
+        title: "Venus de Milo",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/V%C3%A9nus_de_Milo_-_Mus%C3%A9e_du_Louvre_AGER_LL_299_%3B_N_527_%3B_Ma_399.jpg/960px-V%C3%A9nus_de_Milo_-_Mus%C3%A9e_du_Louvre_AGER_LL_299_%3B_N_527_%3B_Ma_399.jpg",
+        description: "Famous Greek statue of the goddess Venus, renowned for its grace.",
+        price: "35 BTC"
+      },
+      {
+        title: "The Raft of the Medusa",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/JEAN_LOUIS_TH%C3%89ODORE_G%C3%89RICAULT_-_La_Balsa_de_la_Medusa_%28Museo_del_Louvre%2C_1818-19%29.jpg/960px-JEAN_LOUIS_TH%C3%89ODORE_G%C3%89RICAULT_-_La_Balsa_de_la_Medusa_%28Museo_del_Louvre%2C_1818-19%29.jpg",
+        description: "An epic portrayal of shipwrecked survivors by Théodore Géricault.",
+        price: "50 BTC"
+      },
+      {
+        title: "Suger's Eagle",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Aigle_de_Suger.jpg/520px-Aigle_de_Suger.jpg",
+        description: "An ancient Egyptian porphyry vase, used in royal and religious ceremonies.",
+        price: "25 BTC"
+      },
+      {
+        title: "Liberty Leading the People",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/La_Libert%C3%A9_guidant_le_peuple_-_Eug%C3%A8ne_Delacroix_-_Mus%C3%A9e_du_Louvre_Peintures_RF_129_-_apr%C3%A8s_restauration_2024.jpg/600px-La_Libert%C3%A9_guidant_le_peuple_-_Eug%C3%A8ne_Delacroix_-_Mus%C3%A9e_du_Louvre_Peintures_RF_129_-_apr%C3%A8s_restauration_2024.jpg",
+        description: "Delacroix's revolutionary allegory of liberty and the French people.",
+        price: "40 BTC"
+      },
+      {
+        title: "Cleopatra dying ",
+        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.kfZmzxRD8pvJehcBVL7uRAHaJ3%26pid%3DApi&f=1&ipt=a69839d0881ee76af0235017583e5658f338769c8a60f513a676b1256bc385e5&ipo=images",
+        description: "Bust of Cleopatra dying.",
+        price: "15 BTC"
+      },
+      {
+        title: "The Coronation of Napoleon",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Jacques-Louis_David_-_The_Coronation_of_Napoleon_%281805-1807%29.jpg/800px-Jacques-Louis_David_-_The_Coronation_of_Napoleon_%281805-1807%29.jpg",
+        description: "Jacques-Louis David’s grand depiction of Napoleon's coronation.",
+        price: "45 BTC"
+      },
+      {
+        title: "The Death of Sardanapalus",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Mort_de_Sardanapale_-_Eug%C3%A8ne_Delacroix_-_Mus%C3%A9e_du_Louvre_Peintures_RF_2346.jpg/600px-Mort_de_Sardanapale_-_Eug%C3%A8ne_Delacroix_-_Mus%C3%A9e_du_Louvre_Peintures_RF_2346.jpg",
+        description: "Delacroix’s chaotic portrayal of the last moments of Sardanapalus.",
+        price: "42 BTC"
+      },
+      {
+        title: "Statuette of Bastet",
+        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcollections.louvre.fr%2Fmedia%2Fcache%2Fsmall%2F0000000021%2F0000006514%2F0000059460_OG.JPG&f=1&nofb=1&ipt=b89aad8546e187bd1289d02aa3f3dfe65c194ceecbce5aa2b7a275688fa48f43&ipo=images",
+        description: "This beautifully detailed statuette represents Bastet, the ancient Egyptian goddess of home, fertility, and protector of the home.",
+        price: "17 BTC"
+      },
+      {
+        title: "The Wedding at Cana",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Paolo_Veronese_008.jpg/960px-Paolo_Veronese_008.jpg",
+        description: "Veronese’s grand depiction of the biblical wedding at Cana.",
+        price: "38 BTC"
+      },
+      {
+        title: "The Young Lady with the Ermine",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Lady_with_an_Ermine_-_Leonardo_da_Vinci_-_Google_Art_Project.jpg/960px-Lady_with_an_Ermine_-_Leonardo_da_Vinci_-_Google_Art_Project.jpg",
+        description: "A portrait of Cecilia Gallerani by Leonardo da Vinci.",
+        price: "33 BTC"
+      },
+      {
+        title: "Tiara from the ensemble of Queen Marie-Amélie and Queen Hortense",
+        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.C15mnjVRogRi45HhSDVesAHaFW%26pid%3DApi&f=1&ipt=50ea827d478cdb527e2a960229b30bd8d1968d7ddfb5528ef4c3d317c65ca378&ipo=images",
+        description: "A magnificent tiara composed of several sapphires belonging to the House of Orléans.",
+        price: "45 BTC"
+      },
+      {
+        title: "The Oath of the Horatii",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Le_Serment_des_Horaces_-_Jacques-Louis_David_-_Mus%C3%A9e_du_Louvre_Peintures_INV_3692_%3B_MR_1432.jpg/960px-Le_Serment_des_Horaces_-_Jacques-Louis_David_-_Mus%C3%A9e_du_Louvre_Peintures_INV_3692_%3B_MR_1432.jpg",
+        description: "David’s powerful representation of Roman history and loyalty.",
+        price: "31 BTC"
+      },
+      {
+        title: "The Dying Slave",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/%27Dying_Slave%27_Michelangelo_JBU001.jpg/440px-%27Dying_Slave%27_Michelangelo_JBU001.jpg",
+        description: "A haunting Michelangelo sculpture depicting a tortured soul.",
+        price: "47 BTC"
+      },
+      {
+        title: "Merovingian ring with pyramidal bezel",
+        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcollections.louvre.fr%2Fmedia%2Fcache%2Flarge%2F0000000021%2F0000101088%2F0000240501_OG.JPG&f=1&nofb=1&ipt=d6cf721de554796636df8fff5d2a89ad5d63af7aff2f0f8df5e9a7e24ddcb534",
+        description: "A striking gold ring from the Merovingian period, featuring a pyramidal bezel.",
+        price: "15 BTC"
+      },
+      {
+        title: "The Virgin of the Rocks",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Leonardo_Da_Vinci_-_Vergine_delle_Rocce_%28Louvre%29.jpg/960px-Leonardo_Da_Vinci_-_Vergine_delle_Rocce_%28Louvre%29.jpg",
+        description: "A mysterious and serene depiction of the Virgin Mary by Leonardo.",
+        price: "44 BTC"
+      }
+    ];
+
+
+    const gallery = document.getElementById('gallery');
+
+    artworks.forEach(art => {
+      const div = document.createElement('div');
+      div.className = 'art-piece';
+      div.innerHTML = `
+        <img src="${art.image}" alt="${art.title}" />
+        <h2>${art.title}</h2>
+        <p>${art.description}</p>
+        <p class="price">${art.price}</p>
+      `;
+      gallery.appendChild(div);
+    });
+  </script>
+</body>
+
+</html>
