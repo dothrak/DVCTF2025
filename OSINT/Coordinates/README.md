@@ -1,4 +1,4 @@
-# 3- Coordinates?
+# Coordinates?
 
 Author: dothrak
 Difficulty: Easy
