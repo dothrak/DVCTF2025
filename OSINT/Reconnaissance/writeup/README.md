@@ -1,4 +1,4 @@
-# 1- Reconnaissance
+# Reconnaissance
 
 ## Panels number
 To find out how many glass panels make up the Louvre pyramid, simply visit its Wikipedia page:
