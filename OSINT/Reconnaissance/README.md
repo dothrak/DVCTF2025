@@ -1,4 +1,4 @@
-# 1- Reconnaissance
+# Reconnaissance
 
 Author: dothrak
 Difficulty: Easy
